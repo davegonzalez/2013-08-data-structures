@@ -14,7 +14,9 @@ var makeStack = function(){
 
   stack.pop = function(){
     //should decrease size
-    size--;
+    if (size) {
+      size--;
+    }
   };
 
   stack.size = function(){

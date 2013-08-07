@@ -43,6 +43,14 @@ describe("stack", function() {
     expect(stack.size()).equal(2);
   });
 
+  it('should report a size >= 0', function() {
+    stack.push('a');
+    stack.pop();
+    stack.pop();
+    
+    expect(stack.size()).equal(0);
+  });
+
   //   stack.pop();
   //   stack.pop();
   //   stack.pop();
