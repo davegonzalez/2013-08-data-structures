@@ -27,7 +27,6 @@ describe("stack", function() {
   });
 
   it('stack.size should report a size of 0 on an empty stack,', function() {
-    //if we're not pushing anything to stack, size should be 0
     expect(stack.size()).equal(0);
   });
 
@@ -47,29 +46,30 @@ describe("stack", function() {
     stack.push('a');
     stack.pop();
     stack.pop();
-    
+
     expect(stack.size()).equal(0);
   });
 
-  //   stack.pop();
-  //   stack.pop();
-  //   stack.pop();
-  //   expect(stack.size()).equal(0);
-  // });
+  it('should push items in the LIFO order', function(){
+    stack.push('a');
+    stack.push('b');
 
-  // it('should pop items in the LIFO order', function() {
-  //   var a = 'a', b = 'b', c = 'c', d = 'd';
+    expect(stack.pop()).equal('b');
+  });
 
-  //   stack.push(a);
-  //   stack.push(b);
-  //   stack.push(c);
-  //   expect(stack.pop()).equal(c);
-  //   expect(stack.pop()).equal(b);
+  it('should pop items in the LIFO order', function() {
+    var a = 'a', b = 'b', c = 'c', d = 'd';
 
-  //   stack.push(d);
-  //   expect(stack.pop()).equal(d);
-  //   expect(stack.pop()).equal(a);
-  // });
+    stack.push(a);
+    stack.push(b);
+    stack.push(c);
+    expect(stack.pop()).equal(c);
+    expect(stack.pop()).equal(b);
+
+    stack.push(d);
+    expect(stack.pop()).equal(d);
+    expect(stack.pop()).equal(a);
+  });
 
   // // instantiation-style-specific tests
   // if (skipper.variant != 'functional'  ){
