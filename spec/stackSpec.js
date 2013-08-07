@@ -31,16 +31,17 @@ describe("stack", function() {
     expect(stack.size()).equal(0);
   });
 
-  // it('should report its size correctly', function() {
-  //   var a = 'a', b = 'b', c = 'c';
+  it('should report its size correctly', function() {
+    var a = 'a', b = 'b', c = 'c';
 
-  //   stack.push(a);
-  //   stack.push(b);
-  //   stack.push(c);
-  //   expect(stack.size()).equal(3);
+    stack.push(a);
+    stack.push(b);
+    stack.push(c);
+    expect(stack.size()).equal(3);
 
-  //   stack.pop();
-  //   expect(stack.size()).equal(2);
+    stack.pop();
+    expect(stack.size()).equal(2);
+  });
 
   //   stack.pop();
   //   stack.pop();
