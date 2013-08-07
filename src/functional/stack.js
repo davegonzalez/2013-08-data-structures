@@ -1,4 +1,5 @@
 var makeStack = function(){
+  var test;
   // Use an object with numeric keys to store values
   var storage = {};
 
