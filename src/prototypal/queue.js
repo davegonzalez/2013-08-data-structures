@@ -1,15 +1,17 @@
 var Queue = function() {
-  var makeQueue = function() {
-  var storage = {};
-  var queue = {};
-  var head = 0;
-  var tail = 0;
+  var makeQueue = Object.create(Queue.prototype);
+  this.storage = {};
+  this.head = 0;
+  this.tail = 0;
+  return makeQueue;
+};
+  Queue.prototype = {};
 
-  queue.enqueue = function(value) {
+  Queue.prototype.enqueue = function(value) {
     storage[tail++] = value;
   };
 
-  queue.dequeue = function() {
+  Queue.prototype.dequeue = function() {
     if (this.size()) {
       var temp = storage[head];
       delete storage[head++];
@@ -17,11 +19,6 @@ var Queue = function() {
     }
   };
 
-  queue.size = function() {
+  Queue.prototype.size = function() {
     return tail - head;
   };
-
-  return queue;
-};
-
-};
