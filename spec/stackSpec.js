@@ -71,25 +71,25 @@ describe("stack", function() {
     expect(stack.pop()).equal(a);
   });
 
-  // // instantiation-style-specific tests
-  // if (skipper.variant != 'functional'  ){
-  //   it('should have its own storage property', function(){
-  //     expect(stack.hasOwnProperty('storage')).to.exist;
-  //   });
+  // instantiation-style-specific tests
+  if (skipper.variant != 'functional'  ){
+    it('should have its own storage property', function(){
+      expect(stack.hasOwnProperty('storage')).to.exist;
+    });
 
-  //   it('should share methods with other instances', function(){
-  //     var oldStack = stack;
-  //     refreshStack();
-  //     expect(oldStack.push).to.be.equal(stack.push);
-  //   });
-    
-  //   if (skipper.variant != 'functional-shared'){
-  //     it('should inherit its methods ', function(){
-  //       expect(stack.__proto__).to.be.a('object');
-  //       expect(stack.__proto__.push).to.be.a('function');
-  //       expect(stack.__proto__.pop).to.be.a('function');
-  //       expect(stack.__proto__.size).to.be.a('function');
-  //     });
-  //   }
-  // }
+    it('should share methods with other instances', function(){
+      var oldStack = stack;
+      refreshStack();
+      expect(oldStack.push).to.be.equal(stack.push);
+    });
+
+    if (skipper.variant != 'functional-shared'){
+      it('should inherit its methods ', function(){
+        expect(stack.__proto__).to.be.a('object');
+        expect(stack.__proto__.push).to.be.a('function');
+        expect(stack.__proto__.pop).to.be.a('function');
+        expect(stack.__proto__.size).to.be.a('function');
+      });
+    }
+  }
 });
