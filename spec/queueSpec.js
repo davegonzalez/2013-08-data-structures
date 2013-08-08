@@ -46,6 +46,13 @@ describe("queue", function() {
     expect(queue.size()).equal(0);
   });
 
+  it('should enqueue items in FIFO order', function() {
+    queue.enqueue('a');
+    queue.enqueue('b');
+
+    expect(queue.dequeue()).equal('a');
+  });
+
   it('should dequeue items in the FIFO order', function() {
     var a = 'a', b = 'b', c = 'c', d = 'd';
 
