@@ -36,14 +36,6 @@ describe("queue", function() {
     queue.enqueue(b);
     queue.enqueue(c);
     expect(queue.size()).equal(3);
-
-    queue.dequeue();
-    expect(queue.size()).equal(2);
-
-    queue.dequeue();
-    queue.dequeue();
-    queue.dequeue(); // make sure we don't get to -1
-    expect(queue.size()).equal(0);
   });
 
   it('should dequeue items in the FIFO order', function() {
