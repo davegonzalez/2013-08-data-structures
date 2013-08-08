@@ -38,6 +38,14 @@ describe("queue", function() {
     expect(queue.size()).equal(3);
   });
 
+  it('should never report a size of < 0', function() {
+    queue.enqueue('a');
+    queue.dequeue();
+    queue.dequeue();
+
+    expect(queue.size()).equal(0);
+  });
+
   it('should dequeue items in the FIFO order', function() {
     var a = 'a', b = 'b', c = 'c', d = 'd';
 
