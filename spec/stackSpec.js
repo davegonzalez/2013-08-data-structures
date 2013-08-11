@@ -30,6 +30,22 @@ describe("stack", function() {
     expect(stack.size()).equal(0);
   });
 
+  it('should not pop if stack is < 0', function() {
+    stack.push('a');
+    stack.pop();
+    stack.pop();
+
+    expect(stack.size()).equal(0);
+  });
+
+  it('should not accept an undefined value', function() {
+    stack.push('');
+    stack.push(null);
+    stack.push(undefined);
+    stack.push();
+    expect(stack.size()).equal(0);
+  });
+
   it('should report its size correctly', function() {
     var a = 'a', b = 'b', c = 'c';
 
@@ -40,21 +56,11 @@ describe("stack", function() {
 
     stack.pop();
     expect(stack.size()).equal(2);
-  });
 
-  it('should report a size >= 0', function() {
-    stack.push('a');
     stack.pop();
     stack.pop();
-
+    stack.pop();
     expect(stack.size()).equal(0);
-  });
-
-  it('should push items in the LIFO order', function(){
-    stack.push('a');
-    stack.push('b');
-
-    expect(stack.pop()).equal('b');
   });
 
   it('should pop items in the LIFO order', function() {
@@ -82,7 +88,7 @@ describe("stack", function() {
       refreshStack();
       expect(oldStack.push).to.be.equal(stack.push);
     });
-
+    
     if (skipper.variant != 'functional-shared'){
       it('should inherit its methods ', function(){
         expect(stack.__proto__).to.be.a('object');

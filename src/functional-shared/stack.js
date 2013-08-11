@@ -1,26 +1,22 @@
 var makeStack = function() {
-  var storage = {};
-  var size = 0;
-  var stack = {};
+	var stack = _({}).extend(stackMethods);
+	stack._size = 0;
+	stack._storage = {};
 
-    var giveAccess = {
+	return stack;
+};
 
-      push: function(value) {
-        storage[size++] = value;
-      },
+var stackMethods = {};
 
-      pop: function() {
-        if (size) {
-          var temp = storage[size - 1];
-          delete storage[size - 1];
-          size--;
-          return temp;
-        }
-      },
+stackMethods.push = function(value) {
+	this._storage[this.size++] = value;
+};
 
-      size: function() {
-        return size;
-    }
-  };
-return _.extend(makeStack, giveAccess);
+stackMethods.pop = function() {
+	this._size && this._size--;
+	return this._storage[this.size];
+};
+
+stackMethods.size = function() {
+	return this._size;
 };

@@ -1,10 +1,12 @@
 var makeStack = function() {
-  var storage = {},
-    size = 0,
-    stack = {};
+  var storage = {};
+  var size = 0;
+  var stack = {};
 
   stack.push = function(value) {
+    if (value) {
     storage[size++] = value;
+    }
   };
 
   stack.pop = function() {
