@@ -1,6 +1,6 @@
 var Stack = function() {
-	this._size = 0;
-	this._storage = {};
+  this._size = 0;
+  this._storage = {};
 };
 
 Stack.prototype.push = function(value) {
