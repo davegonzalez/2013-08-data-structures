@@ -3,20 +3,19 @@ var Stack = function() {
 	this._storage = {};
 };
 
-var makeStack = {};
-
 Stack.prototype.push = function(value) {
-	this._storage[this._size++] = value;
+  if (value) {
+    this._storage[this._size++] = value;
+  }
 };
 
 Stack.prototype.pop = function() {
-	this._size && this._size--;
-	return this._storage[this._size];
+  this._size && this._size--;
+  return this._storage[this._size];
 };
 
 Stack.prototype.size = function() {
-	return Stack._size;
+  return this._size;
 };
-
 
 var makeStack = new Stack();
